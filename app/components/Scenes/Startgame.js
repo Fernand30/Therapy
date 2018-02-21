@@ -76,9 +76,19 @@ class BasicScene extends Component {
       indeterminate: false
     })
     item = this.props.navigation.state.params.item //data from Edit new test
+    
+  }
+
+  componentDidMount(){
+    if(global.ids){
+      this.setState({
+        ids: global.ids
+      })
+    }
   }
 
   componentWillUpdate() {
+    
     LayoutAnimation.configureNext({
       duration: 500,
       create: {
@@ -118,6 +128,7 @@ class BasicScene extends Component {
       questions.splice(ids.indexOf(item.id),1)
       ids.splice(ids.indexOf(item.id),1)
     }
+    global.id = ids
     num = ids.length
     that.setState({
       questions: questions,
