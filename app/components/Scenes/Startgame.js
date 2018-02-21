@@ -97,12 +97,10 @@ class BasicScene extends Component {
 
   goCheckboard(){
     done = this.state.ids.length
-    if(done<20){
-      alert('You must select at least 20 problems.')
-    }else{
-      alert('Selected '+ done +' problems!')
+    
+      alert('You selected'+ done +'/20 problems!')
       global.questions = this.state.questions
-    }
+    
   }
 
   clickQuestion(item){
@@ -110,8 +108,12 @@ class BasicScene extends Component {
     ids = that.state.ids
     //questions = [] array.splice(index, 1);
     if(ids.indexOf(item.id)==-1){
-      questions.push(item)
-      ids.push(item.id)
+      if(ids.length==20){
+        alert('You already selected 20 problems.')
+      }else{
+        questions.push(item)
+        ids.push(item.id)
+      }
     }else{
       questions.splice(ids.indexOf(item.id),1)
       ids.splice(ids.indexOf(item.id),1)
