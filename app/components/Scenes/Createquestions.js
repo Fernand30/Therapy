@@ -104,8 +104,9 @@ class BasicScene extends Component {
             <Text style={styles.headerText}>Add New Test</Text>
           </View>
           <View style={styles.contentContainer}>
+             <Text style={styles.commonText}>Create Test Problem</Text>
              <View style={styles.rowView}>
-              <Text>Select Questions Image</Text>
+              <Text style={styles.commonText}>Select Questions Image:  </Text>
               <TouchableOpacity onPress={this.goImagePicker.bind(this,'question')} style={styles.imagebutton}>
               {(this.state.question!='')?
                 <Image style={styles.image} source={{uri: this.state.question}}/>
@@ -114,7 +115,7 @@ class BasicScene extends Component {
               </TouchableOpacity>
              </View>
              <View style={styles.rowView}>
-              <Text>Select Questions Image</Text>
+              <Text style={styles.commonText}>Select Questions Image:  </Text>
               <TouchableOpacity onPress={this.goImagePicker.bind(this,'rightAns')} style={styles.imagebutton}>
               {(this.state.rightAns!='')?
                 <Image style={styles.image} source={{uri: this.state.rightAns}}/>
@@ -123,7 +124,7 @@ class BasicScene extends Component {
               </TouchableOpacity>
              </View>
              <View style={styles.rowView}>
-              <Text>Select Questions Image</Text>
+              <Text style={styles.commonText}>Select Questions Image:  </Text>
               <TouchableOpacity onPress={this.goImagePicker.bind(this,'wrongAns')} style={styles.imagebutton}>
               {(this.state.wrongAns!='')?
                 <Image style={styles.image} source={{uri: this.state.wrongAns}}/>
@@ -152,6 +153,10 @@ const styles = StyleSheet.create({
     paddingTop: STATUSBAR_HEIGHT,
     backgroundColor: '#AAAAAA'
   },
+  commonText:{
+    fontSize: Constants.Font*15,
+    textAlign: 'center'
+  },
   image:{
     width:Constants.Marin*20,
     height: Constants.Marin*20,
@@ -167,7 +172,7 @@ const styles = StyleSheet.create({
     width: Constants.width - Constants.Marin*20,
     alignItems:'center',
     alignSelf:'center',
-    justifyContent:'space-between'
+    justifyContent:'center'
   },
   done:{
     borderWidth: 1,
@@ -197,7 +202,8 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    backgroundColor: '#EEEEEE'
+    backgroundColor: '#EEEEEE',
+    paddingTop: Constants.Marin*3
   }
 });
 
