@@ -31,13 +31,13 @@ export default class SideMenu extends Component {
         />
         <Button
           title="Add New Test"
-          onPress={() => console.log('Not wired up yet.')}
+          onPress={() => Actions.push('createquestions')}
           style={styles.tab}
           textStyle={styles.buttonText}
         />
         <Button
           title="Edit Main Test"
-          onPress={() => Actions.push('createquestions')}
+          onPress={() => Actions.push('startgame')}
           style={styles.tab}
           textStyle={styles.buttonText}
         />
@@ -49,7 +49,7 @@ export default class SideMenu extends Component {
         />
         <Button
           title="Start Main Test"
-          onPress={() => Actions.push('startgame')}
+          onPress={() => Actions.push('checkboard')}
 
           style={styles.tab}
           textStyle={styles.buttonText}

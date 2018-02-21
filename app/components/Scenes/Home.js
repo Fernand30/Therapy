@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import Button from '../Components/Button';
 import BasicScene from './BasicScene';
 import {Images, Constants} from "../themes"
-
+global.questions = []
 export default class Home extends Component {
   render() {
     return (

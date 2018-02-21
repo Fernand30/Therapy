@@ -9,7 +9,8 @@ import {
   UIManager,
   Platform,
   StatusBar,
-  NativeModules
+  NativeModules,
+  ScrollView,
 } from 'react-native';
 import { connect } from 'react-redux';
 import SideMenu from '../Components/SideMenu';
@@ -21,6 +22,19 @@ const Q1 = {id:1,name: 'question1', question: Images.bird, rightAnswer: Images.b
 const Q2 = {id:2,name: 'question2', question: Images.car, rightAnswer: Images.road, wrongAnswer: Images.sea}
 const Q4 = {id:4,name: 'question4', question: Images.anchor, rightAnswer: Images.windsurf, wrongAnswer: Images.sailboat}
 const Q5 = {id:5,name: 'question5', question: Images.shirt, rightAnswer: Images.sledge, wrongAnswer: Images.tie}
+const Q6 = {id:6,name: 'question6', question: Images.bed, rightAnswer: Images.ladle, wrongAnswer: Images.pajamas}
+const Q7 = {id:7,name: 'question7', question: Images.bus, rightAnswer: Images.rv, wrongAnswer: Images.ticket}
+const Q8 = {id:8,name: 'question8', question: Images.book, rightAnswer: Images.letter, wrongAnswer: Images.library}
+const Q9 = {id:9,name: 'question9', question: Images.elephant, rightAnswer: Images.horse, wrongAnswer: Images.saddle}
+const Q10 = {id:10,name: 'question10', question: Images.chair, rightAnswer: Images.leopard, wrongAnswer: Images.shirt}
+const Q11 = {id:11,name: 'question11', question: Images.photo, rightAnswer: Images.picnic, wrongAnswer: Images.plane}
+const Q12 = {id:12,name: 'question12', question: Images.cheese, rightAnswer: Images.cow, wrongAnswer: Images.leaf}
+const Q13 = {id:13,name: 'question13', question: Images.handlebars, rightAnswer: Images.motorbike, wrongAnswer: Images.parachute}
+const Q14 = {id:14,name: 'question14', question: Images.feather, rightAnswer: Images.goose, wrongAnswer: Images.koala}
+const Q15 = {id:15,name: 'question15', question: Images.sandwich, rightAnswer: Images.spoon, wrongAnswer: Images.watch}
+const Q16 = {id:16,name: 'question16', question: Images.lemon, rightAnswer: Images.pear, wrongAnswer: Images.strawberry}
+const Q17 = {id:17,name: 'question17', question: Images.leaf, rightAnswer: Images.sailboat, wrongAnswer: Images.tree}
+const Q18 = {id:18,name: 'question18', question: Images.cow, rightAnswer: Images.sledge, wrongAnswer: Images.tractor}
 
 class BasicScene extends Component {
   constructor(props) {
@@ -57,12 +71,13 @@ class BasicScene extends Component {
     });
   }
 
-  goCheckboard(item){
-    if(item.length==0){
-      alert('please select questions')
-    }else{
-      Actions.checkboard({item: item})
-    }
+  goCheckboard(){
+    // if(item.length==0){
+    //   alert('please select questions')
+    // }else{
+    //   Actions.checkboard({item: item})
+    // }
+    global.questions = this.state.questions
   }
 
   clickQuestion(item){
@@ -87,6 +102,58 @@ class BasicScene extends Component {
     }else if(item.name =='question5'){
       this.setState({
         question5: true
+      })
+    }else if(item.name =='question6'){
+      this.setState({
+        question6: true
+      })
+    }else if(item.name =='question7'){
+      this.setState({
+        question7: true
+      })
+    }else if(item.name =='question8'){
+      this.setState({
+        question8: true
+      })
+    }else if(item.name =='question9'){
+      this.setState({
+        question9: true
+      })
+    }else if(item.name =='question10'){
+      this.setState({
+        question10: true
+      })
+    }else if(item.name =='question11'){
+      this.setState({
+        question11: true
+      })
+    }else if(item.name =='question12'){
+      this.setState({
+        question12: true
+      })
+    }else if(item.name =='question13'){
+      this.setState({
+        question13: true
+      })
+    }else if(item.name =='question14'){
+      this.setState({
+        question14: true
+      })
+    }else if(item.name =='question15'){
+      this.setState({
+        question15: true
+      })
+    }else if(item.name =='question16'){
+      this.setState({
+        question16: true
+      })
+    }else if(item.name =='question17'){
+      this.setState({
+        question17: true
+      })
+    }else if(item.name =='question18'){
+      this.setState({
+        question18: true
       })
     }else{
       this.setState({
@@ -132,6 +199,7 @@ class BasicScene extends Component {
               <Text style={styles.label}>Right Answer</Text>
               <Text style={styles.label}>Wrong Answer</Text>
             </View>
+          <ScrollView>
             <TouchableOpacity onPress={this.clickQuestion.bind(this,Q1)} style={styles.selectButton}>
               {
                 (this.state.question1)?<Image source={Images.check} style={styles.check}/>
@@ -168,6 +236,123 @@ class BasicScene extends Component {
               <Image source={Q5.rightAnswer} style={styles.bird}/>
               <Image source={Q5.wrongAnswer} style={styles.bird}/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q6)} style={styles.selectButton}>
+              {
+                (this.state.question6)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q6.question} style={styles.bird}/>
+              <Image source={Q6.rightAnswer} style={styles.bird}/>
+              <Image source={Q6.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q7)} style={styles.selectButton}>
+              {
+                (this.state.question7)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q7.question} style={styles.bird}/>
+              <Image source={Q7.rightAnswer} style={styles.bird}/>
+              <Image source={Q7.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q8)} style={styles.selectButton}>
+              {
+                (this.state.question8)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q8.question} style={styles.bird}/>
+              <Image source={Q8.rightAnswer} style={styles.bird}/>
+              <Image source={Q8.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q9)} style={styles.selectButton}>
+              {
+                (this.state.question9)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q9.question} style={styles.bird}/>
+              <Image source={Q9.rightAnswer} style={styles.bird}/>
+              <Image source={Q9.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q10)} style={styles.selectButton}>
+              {
+                (this.state.question10)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q10.question} style={styles.bird}/>
+              <Image source={Q10.rightAnswer} style={styles.bird}/>
+              <Image source={Q10.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q11)} style={styles.selectButton}>
+              {
+                (this.state.question11)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q11.question} style={styles.bird}/>
+              <Image source={Q11.rightAnswer} style={styles.bird}/>
+              <Image source={Q11.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q12)} style={styles.selectButton}>
+              {
+                (this.state.question12)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q12.question} style={styles.bird}/>
+              <Image source={Q12.rightAnswer} style={styles.bird}/>
+              <Image source={Q12.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q13)} style={styles.selectButton}>
+              {
+                (this.state.question13)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q13.question} style={styles.bird}/>
+              <Image source={Q13.rightAnswer} style={styles.bird}/>
+              <Image source={Q13.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q14)} style={styles.selectButton}>
+              {
+                (this.state.question14)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q14.question} style={styles.bird}/>
+              <Image source={Q14.rightAnswer} style={styles.bird}/>
+              <Image source={Q14.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q15)} style={styles.selectButton}>
+              {
+                (this.state.question15)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q15.question} style={styles.bird}/>
+              <Image source={Q15.rightAnswer} style={styles.bird}/>
+              <Image source={Q15.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q16)} style={styles.selectButton}>
+              {
+                (this.state.question16)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q16.question} style={styles.bird}/>
+              <Image source={Q16.rightAnswer} style={styles.bird}/>
+              <Image source={Q16.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q17)} style={styles.selectButton}>
+              {
+                (this.state.question17)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q17.question} style={styles.bird}/>
+              <Image source={Q17.rightAnswer} style={styles.bird}/>
+              <Image source={Q17.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.clickQuestion.bind(this,Q18)} style={styles.selectButton}>
+              {
+                (this.state.question18)?<Image source={Images.check} style={styles.check}/>
+                                       :<View style={styles.check}/>
+              }
+              <Image source={Q18.question} style={styles.bird}/>
+              <Image source={Q18.rightAnswer} style={styles.bird}/>
+              <Image source={Q18.wrongAnswer} style={styles.bird}/>
+            </TouchableOpacity>
             {((item)&&!Number(item.question))?
               <TouchableOpacity onPress={this.clickQuestion.bind(this,Q3)} style={styles.selectButton}>
                 {
@@ -179,7 +364,8 @@ class BasicScene extends Component {
                 <Image source={{uri:item.wrongAns}} style={styles.bird}/>
               </TouchableOpacity>:null
             }
-            <TouchableOpacity onPress={this.goCheckboard.bind(this,this.state.questions)} style={styles.done}>
+          </ScrollView>
+            <TouchableOpacity onPress={this.goCheckboard.bind(this)} style={styles.done}>
               <Text> Done</Text>
             </TouchableOpacity>
           </View>
@@ -237,7 +423,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     backgroundColor: '#EEEEEE',
-    alignItems:'center'
+    alignItems:'center',
+    paddingBottom: Constants.Marin*2
   },
   selectButton:{
     flexDirection:'row',

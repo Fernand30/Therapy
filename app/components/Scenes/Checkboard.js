@@ -30,8 +30,13 @@ class BasicScene extends Component {
       UIManager.setLayoutAnimationEnabledExperimental &&
         UIManager.setLayoutAnimationEnabledExperimental(true);
     }
-    ttt = this.props.navigation.state.params.item
-    tttLength = ttt.length
+    // ttt = this.props.navigation.state.params.item
+    // if(ttt){
+    //   tttLength = ttt.length
+    // }else{
+    //    tttLength = ['No question']
+    // }
+    questionsLen = global.questions.length
   }
 
   componentWillUpdate() {
@@ -86,7 +91,7 @@ class BasicScene extends Component {
         'You are wrong.',
         [
           //If index is last then stop next
-          {text: 'OK', onPress: () => (tttLength-1>this.state.index)?this.setState({checkImage2:false,checkImage1: false,index: this.state.index+1}):null},
+          {text: 'OK', onPress: () => (questionsLen-1>this.state.index)?this.setState({checkImage2:false,checkImage1: false,index: this.state.index+1}):null},
         ],
         { cancelable: false }
       )
@@ -96,7 +101,7 @@ class BasicScene extends Component {
         'congratulations!',
         'You are right.',
         [
-          {text: 'OK', onPress: () => (tttLength-1>this.state.index)?this.setState({checkImage2:false,checkImage1: false,index: this.state.index+1}):null},
+          {text: 'OK', onPress: () => (questionsLen-1>this.state.index)?this.setState({checkImage2:false,checkImage1: false,index: this.state.index+1}):null},
         ],
         { cancelable: false }
       )
@@ -108,7 +113,32 @@ class BasicScene extends Component {
   }
 
   render() {
-    item = ttt[this.state.index]
+    if(questionsLen==0){
+      return(
+        <View style={styles.container}>
+          <StatusBar translucent={true} backgroundColor={'transparent'} />
+          {this.renderMenu()}
+          <View style={{ flex: 3, alignItems: 'stretch' }}>
+            <View style={styles.header}>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => this.props.toggleMenu()}
+              >
+                <Image
+                  style={styles.hamburger}
+                  source={Images.hamburger_button}
+                />
+              </TouchableOpacity>
+              <Text style={styles.headerText}>Please select Image</Text>
+            </View>
+            <View style={styles.contentContainer}>
+             <Text style={styles.touchText}>No question</Text>
+            </View>
+          </View>
+        </View>
+      )
+    }else{
+    item = global.questions[this.state.index]
     return (
       <View style={styles.container}>
         <StatusBar translucent={true} backgroundColor={'transparent'} />
@@ -168,6 +198,7 @@ class BasicScene extends Component {
         </View>
       </View>
     );
+  }
   }
 }
 
